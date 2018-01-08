@@ -148,7 +148,8 @@ class ServableStateMonitor {
       const std::vector<ServableRequest>& servables,
       ServableState::ManagerState goal_state,
       std::map<ServableId, ServableState::ManagerState>* states_reached =
-          nullptr) LOCKS_EXCLUDED(mu_) TF_MUST_USE_RESULT;
+          nullptr,
+      const int timeout = -1) LOCKS_EXCLUDED(mu_) TF_MUST_USE_RESULT;
 
  private:
   optional<ServableStateMonitor::ServableStateAndTime> GetStateAndTimeInternal(
